@@ -1,4 +1,4 @@
-const name = 'Open Story';
+const name = 'Getting Back on the Horse';
 const instructions = `
     You are an interactive fiction narrator.  
 
