@@ -2,8 +2,8 @@ import { useState } from "react";
 import { postMessages } from "./story-api";
 import StoryBodyView from "./components/content-view/StoryBodyView";
 import PlayerInput from "./components/player-input/PlayerInput";
-// import { storyConfig } from './story-config';
-import { storyConfig } from './examples/story-config-01-birdwatching';
+import { storyConfig } from './story-config';
+// import { storyConfig } from './examples/story-config-01-birdwatching';
 // import { storyConfig } from './examples/story-config-02-a-late-divorce';
 // import { storyConfig } from './examples/story-con fig-03-hebrew';
 
@@ -48,7 +48,7 @@ function App() {
             setStatus('error');
             return;
         }
-
+        console.log(response);
         addMessage({ role: 'assistant', content: response.storyText });
 
         if (storyShouldEnd) {
@@ -68,13 +68,24 @@ function App() {
         // if (res.playerSentiment.includes('sadness')) {
         //     addMessage({ role: 'system', content: `The following storyText should make the player laugh.` })
         // }
+        // Ending conditions:
 
-        // Ending condition:
-        if (response.goalProgress >= 0.9) {
-            addMessage({ role: 'system', content: `The following storyText should end the story. Use up to 50 words to write an epilogue.` })
+        if(response.duduFrustration >= 0.8){
+            addMessage({
+                role: 'system',
+                content: `The following storyText should end the story with Dudu storming out of the meeting. 
+                convey that he is now very unlikely to take the job, and try to make the player feel a little guilty about his performance.
+                Use up to 50 words to write an epilogue.`
+            })
             setStoryShouldEnd(true);
         }
-
+        if (response.goalProgress >= 0.8) {
+            addMessage({
+                role: 'system',
+                content: `The following storyText should end the story. Use up to 50 words to write an epilogue.`
+            })
+            setStoryShouldEnd(true);
+        }
     }
 
     return (

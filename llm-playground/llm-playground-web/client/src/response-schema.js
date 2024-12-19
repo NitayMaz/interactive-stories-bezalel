@@ -53,8 +53,13 @@ export const responseSchema = {
                 description:
                     'float between 0 and 1. It represents how close is the player to reach his goal. 0 means not at all, 1 means the goal is achieved.',
             },
+            duduFrustration:{
+                type: 'number',
+                description:
+                    'float between 0 and 1. It represents how frustrated Dudu is with his therapist(the player). 0 means not at all, 1 means Dudu is pissed.',
+            }
         },
-        required: ['storyText', 'callToAction', 'storyEvent', 'goalProgress', 'playerEngagement', 'playerSentiment'],
+        required: ['storyText', 'callToAction', 'storyEvent', 'goalProgress', 'duduFrustration', 'playerEngagement', 'playerSentiment'],
         additionalProperties: false,
     },
 };
