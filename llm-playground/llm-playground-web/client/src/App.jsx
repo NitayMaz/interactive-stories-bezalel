@@ -28,10 +28,10 @@ function App() {
         if (response.playerEngagement <= 0.6) {
             // Trigger an independent story event:
             addMessage({ role: 'assistant', content: response.storyEvent });
-        } else {
-            // Apply call to action hint:
-            addMessage({ role: 'assistant', content: response.callToAction });
         }
+        // Apply call to action hint:
+        addMessage({ role: 'assistant', content: response.callToAction });
+
     }
 
     function handleSend(playerText) {
@@ -63,6 +63,7 @@ function App() {
         // console.log(res.playerSentiment);
         console.log('engagement:', response.playerEngagement);
         console.log('goal progress: ', response.goalProgress);
+        console.log("dudu's frustration", response.duduFrustration);
 
         // Example: reacting to player sentiment:
         // if (res.playerSentiment.includes('sadness')) {
@@ -70,19 +71,29 @@ function App() {
         // }
         // Ending conditions:
 
-        if(response.duduFrustration >= 0.8){
-            addMessage({
-                role: 'system',
-                content: `The following storyText should end the story with Dudu storming out of the meeting. 
+        if(response.duduFrustration >= 0.5){
+            if(response.duduFrustration >= 0.8) {
+                addMessage({
+                    role: 'system',
+                    content: `The following storyText should end the story with Dudu storming out of the meeting. 
                 convey that he is now very unlikely to take the job, and try to make the player feel a little guilty about his performance.
                 Use up to 50 words to write an epilogue.`
-            })
-            setStoryShouldEnd(true);
+                })
+                setStoryShouldEnd(true);
+            }
+            else
+            {
+                addMessage({
+                    role: 'system',
+                    content: `The following storyText should warn the player that dudu is getting uneasy, and might storm out.`
+                })
+            }
         }
-        if (response.goalProgress >= 0.8) {
+        if (response.goalProgress >= 0.7) {
             addMessage({
                 role: 'system',
-                content: `The following storyText should end the story. Use up to 50 words to write an epilogue.`
+                content: `The following storyText should end the story. Use up to 50 words to write an epilogue.
+                 dudu will take the job, and will start his way towards recovery. make the player feel pride at his achievement`
             })
             setStoryShouldEnd(true);
         }
