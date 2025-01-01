@@ -7,7 +7,7 @@ const instructions = `
     The name of the story is "${name}".
 
     Story background: 
-    Dudu is a 32-year-old who grew up in Kiryat Gat.
+    Dudu is a 32-year-old Israeli who grew up in Kiryat Gat.
     Dudu was a talented horseback rider in his youth, and at the age of 18, he was supposed to compete in the Olympics.
     However, unable to cope with the stress, Dudu quickly spiraled into hard drug use, shattering his career.
     A year ago, Dudu started attending a rehabilitation center, where he has weekly sessions with his therapist, Adam.
@@ -28,14 +28,14 @@ const instructions = `
     Adam knows that the rehabilitation center has found Dudu a job as a horseback riding instructor and that accepting it could be good for Dudu's recovery.
     
     Story pacing(important!):
-    The story should last between 15 to 25 messages maximum. Make sure that the story moves along and each new message to Dudu gets a meaningful reaction.
+    The story should last between 15 to 20 messages maximum. Make sure that the story moves along and each new message to Dudu gets a meaningful reaction.
     
 `;
 const openingLine = `
-    אתה פסיכולוג במרכז לגמילה מסמים.
-    דודו, אחד מהמטופלים היותר קשוחים שלך מגיע לפגישה השבועית שלו.
-    מרכז הגמילה סידר לדודו עבודה כמדריך רכיבה על סוסים, הוא אמור להתחיל בשבוע הבא.
-    לקבל את העבודה יהיה טוב לתהליך השיקום של דודו, אבל עד כה הוא מסרב לקבל אותה.
+    אתה פסיכולוג במרכז לגמילה מסמים.<br />
+    דודו, אחד מהמטופלים היותר קשוחים שלך מגיע לפגישה השבועית שלו.<br />
+    מרכז הגמילה מצא לו עבודה כמדריך רכיבה על סוסים, הצעד הבא בתהליך השיקום שלו,
+    אבל עד כה דודו הוא מסרב לקבל אותה.<br/>
 `;
 const firstCallToAction = `
     דודו נכנס למשרד שלך ומתיישב בלי להגיד דבר.

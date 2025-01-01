@@ -25,10 +25,10 @@ function App() {
     function handleInactivity() {
         if (!response) return;
 
-        if (response.playerEngagement <= 0.6) {
-            // Trigger an independent story event:
-            addMessage({ role: 'assistant', content: response.storyEvent });
-        }
+        // if (response.playerEngagement <= 0.6) {
+        //     // Trigger an independent story event:
+        //     addMessage({ role: 'assistant', content: response.storyEvent });
+        // }
         // Apply call to action hint:
         addMessage({ role: 'assistant', content: response.callToAction });
 
@@ -53,7 +53,7 @@ function App() {
 
         if (storyShouldEnd) {
             setStatus('ended');
-            addMessage({ role: 'assistant', content: 'THE END.' });
+            addMessage({ role: 'assistant', content: 'הסוף.' });
             return;
         }
 
@@ -71,8 +71,8 @@ function App() {
         // }
         // Ending conditions:
 
-        if(response.duduFrustration >= 0.5){
-            if(response.duduFrustration >= 0.8) {
+        if(response.duduFrustration >= 0.4){
+            if(response.duduFrustration >= 0.7) {
                 addMessage({
                     role: 'system',
                     content: `The following storyText should end the story with Dudu storming out of the meeting. 

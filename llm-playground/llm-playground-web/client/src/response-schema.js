@@ -28,14 +28,14 @@ export const responseSchema = {
 
                 `,
             },
-            storyEvent: {
-                type: 'string',
-                description: `
-                    Additional story event that happens regardless of the player's input in order to push the story forward. 
-                    It migh be poetic, it might be surprising, or even very dramatic.
-                    Word count limitation is 50.
-                `,
-            },
+            // storyEvent: {
+            //     type: 'string',
+            //     description: `
+            //         Additional story event that happens regardless of the player's input in order to push the story forward.
+            //         It might be poetic, it might be surprising, or even very dramatic.
+            //         Word count limitation is 50.
+            //     `,
+            // },
             playerEngagement: {
                 type: 'number',
                 description: `a float between 0 and 1, where 0 is bored and 1 is excited, based on the user's latest message.`,
@@ -59,7 +59,7 @@ export const responseSchema = {
                     'float between 0 and 1. It represents how frustrated Dudu is with his therapist(the player). 0 means not at all, 1 means Dudu is pissed.',
             }
         },
-        required: ['storyText', 'callToAction', 'storyEvent', 'goalProgress', 'duduFrustration', 'playerEngagement', 'playerSentiment'],
+        required: ['storyText', 'callToAction', 'goalProgress', 'duduFrustration', 'playerEngagement', 'playerSentiment'],
         additionalProperties: false,
     },
 };
